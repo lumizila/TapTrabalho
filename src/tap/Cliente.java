@@ -17,13 +17,13 @@ public class Cliente {
 
 		/*inclusão de produto p1, p2, p3; exclusao de p2 e alteracao de p1. */
 		Command printUser = new printUserCommand(u1);
-		/*Command addCart = new addCartToPersonCommand(c1);
+		Command addCart = new addCartToPersonCommand(c1, u1);
 		Command addItemP1 = new addItemToCartCommand(p1, c1);	
 		Command addItemP2 = new addItemToCartCommand(p2, c1);	
 		Command addItemP3 = new addItemToCartCommand(p3, c1);
 		Command removeItemP2 = new removeItemFromCartCommand(p2, c1);
 		Command alterItemP1 = new alterItemCommand(p1);
-*/
+
 		//adding itens to the invoker class. 
 		invoker.addCommand(printUser);
 /*		invoker.addCommand(addCart);

@@ -2,9 +2,9 @@ package tap;
 
 public class User {
 	
-	private String name,email;
+	private String name, email, shoppingCart;
 	private int id;
-	
+	private ShoppingCart cart;
 	
 	public String getName() {
 		return name;
@@ -28,19 +28,20 @@ public class User {
 	
 	private User() {
 	}
+
 	public User(String name, String email) {
 		super();
-		System.out.println("Adicionando pessoa: "+name+", cujo email eh:"+email+"\n");
 		this.name = name;
 		this.email = email;
 		this.id = GlobalId.user_id;
 		GlobalId.updateUser_id();
 	}
-	public void DeleteUser(){
-		System.out.println("deletando usuario\n");
-	}
 	public void printUser(){
 		System.out.println("Usuario: " +this.name+", email: "+this.email+"\n");
+	}
+	public void addShoppingCart(ShoppingCart c){
+		this.cart = c;
+		System.out.println("Adicionando carrinho ao usuario "+this.name+"\n");
 	}
 }
 
