@@ -30,10 +30,17 @@ public class User {
 	}
 	public User(String name, String email) {
 		super();
+		System.out.println("Adicionando pessoa: "+name+", cujo email eh:"+email+"\n");
 		this.name = name;
 		this.email = email;
 		this.id = GlobalId.user_id;
 		GlobalId.updateUser_id();
+	}
+	public void DeleteUser(){
+		System.out.println("deletando usuario\n");
+	}
+	public void printUser(){
+		System.out.println("Usuario: " +this.name+", email: "+this.email+"\n");
 	}
 }
 

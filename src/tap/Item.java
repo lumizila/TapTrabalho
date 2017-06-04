@@ -8,9 +8,11 @@ public class Item {
 	private String brand,especs;
 	private int id;
 	
-	
-	public Item(Double price, Date arrival_date, String brand, String especs,
-			Integer id) {
+	public void addItem(){
+		System.out.println("adicionando item");
+	}
+
+	public Item(Double price, Date arrival_date, String brand, String especs) {
 		super();
 		this.price = price;
 		this.arrival_date = arrival_date;
