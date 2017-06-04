@@ -1,19 +1,50 @@
 package tap;
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class Cliente {
 
 	public static void main(String[] args) {
 		Invoker invoker = new Invoker();
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		GlobalId.initItem_id();
+		GlobalId.initUser_id();
+		
 		// A classe cliente precisa realizar: 
 
 		//criação de usuário u1, 
 		User u1 = new User("Matheus", "email@bla.com");
+		
 
 		//criação de carrinho de compras c1 e produtos p1, p2, p3
 		ShoppingCart c1 = new ShoppingCart();
-		//Item p1 = new Item(35, 03/03/2017, "nike", "tenis azul de corrida");
-		//Item p2 = new Item(321, "03/03/2017", "nikee", "tenis azul de corrida");
-		//Item p3 = new Item(434, "03/03/2017", "nikeeee", "tenis azul de corrida");
+		
+		
+		try {
+			Item p1 = new Item(35.00, (Date)formatter.parse("03/03/2017"), "nike", "tenis azul de corrida");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		try {
+			Item p2 = new Item(321.00, (Date)formatter.parse("03/03/2017"), "nikee", "tenis azul de corrida");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		try {
+			Item p3 = new Item(434.00, (Date)formatter.parse("03/03/2017"), "nikeeee", "tenis azul de corrida");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		/*inclusão de produto p1, p2, p3; exclusao de p2 e alteracao de p1. */
 		Command printUser = new printUserCommand(u1);
