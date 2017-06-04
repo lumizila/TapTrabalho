@@ -55,8 +55,15 @@ public class Cliente {
 		Command addItemP1 = new addItemToCartCommand(p1, c1);	
 		Command addItemP2 = new addItemToCartCommand(p2, c1);	
 		Command addItemP3 = new addItemToCartCommand(p3, c1);
-		//Command removeItemP2 = new removeItemFromCartCommand(p2, c1);
-		//Command alterItemP1 = new alterItemCommand(p1);
+		Command removeItemP2 = new removeItemFromCartCommand(p2, c1);
+		Date newDate = null;
+		try {
+			newDate = (Date)formatter.parse("05/04/2017");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Command alterItemP1 = new alterItemCommand(p1, 45.00, newDate, "casaco", "casaco preto do cei");
 
 		//adding itens to the invoker class. 
 		invoker.addCommand(printUser);
@@ -64,8 +71,8 @@ public class Cliente {
 		invoker.addCommand(addItemP1);
 		invoker.addCommand(addItemP2);
 		invoker.addCommand(addItemP3);
-		//invoker.addCommand(removeItemP2);
-		//invoker.addCommand(alterItemP1);
+		invoker.addCommand(removeItemP2);
+		invoker.addCommand(alterItemP1);
 
 		//this will call all the commands at the end
 		invoker.executeCommands();

@@ -37,11 +37,11 @@ public class User {
 		GlobalId.updateUser_id();
 	}
 	public void printUser(){
-		System.out.println("Usuario: " +this.name+", email: "+this.email+"\n");
+		System.out.println("Usuario: " +this.name+", email: "+this.email);
 	}
 	public void addShoppingCart(ShoppingCart c){
 		this.cart = c;
-		System.out.println("Adicionando carrinho ao usuario "+this.name+"\n");
+		System.out.println("Adding cart to user: "+this.name);
 	}
 }
 

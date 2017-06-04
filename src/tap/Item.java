@@ -11,7 +11,22 @@ public class Item {
 	public void addItem(){
 		System.out.println("adicionando item");
 	}
-
+    
+	public void printItem(){
+		System.out.println("the item is: "+this.brand);
+		System.out.println("the item price is: "+this.price.toString());
+		System.out.println("the item  date is: "+this.arrival_date.toString());
+		System.out.println("the item especs is: "+this.especs.toString());
+	}
+	public void alterItem(Double p, Date d, String b, String e){
+		this.price = p;
+		this.arrival_date = d;
+		this.brand = b;
+		this.especs = e;
+		System.out.println("An item was updated to: ");
+		this.printItem();
+	}
+	
 	public Item(Double price, Date arrival_date, String brand, String especs) {
 		super();
 		this.price = price;
