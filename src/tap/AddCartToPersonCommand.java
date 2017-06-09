@@ -1,10 +1,10 @@
 package tap;
 
-public class addCartToPersonCommand implements Command{
+public class AddCartToPersonCommand implements Command{
 	private User user;
 	private ShoppingCart cart;
 	
-	public addCartToPersonCommand(ShoppingCart c, User u){
+	public AddCartToPersonCommand(ShoppingCart c, User u){
 		this.user = u;
 		this.cart = c;
 	}

@@ -1,10 +1,10 @@
 package tap;
 
-public class removeItemFromCartCommand implements Command {
+public class RemoveItemFromCartCommand implements Command {
 	Item item;
 	ShoppingCart cart;
 	
-	public removeItemFromCartCommand(Item i, ShoppingCart c){
+	public RemoveItemFromCartCommand(Item i, ShoppingCart c){
 		this.item = i;
 		this.cart = c;
 	}

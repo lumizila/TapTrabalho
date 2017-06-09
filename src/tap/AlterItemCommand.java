@@ -2,14 +2,14 @@ package tap;
 
 import java.util.Date;
 
-public class alterItemCommand implements Command {
+public class AlterItemCommand implements Command {
 	private Item item;
 	private Double price;
 	private Date arrival_date;
 	private String brand,especs;
 	private int id;
 	
-	public alterItemCommand(Item i, Double p, Date d, String b, String e){
+	public AlterItemCommand(Item i, Double p, Date d, String b, String e){
 		this.item = i;
 		this.price = p;
 		this.arrival_date = d;

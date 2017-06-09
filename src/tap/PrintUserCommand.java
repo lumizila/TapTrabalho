@@ -1,9 +1,9 @@
 package tap;
 
-public class printUserCommand implements Command{
+public class PrintUserCommand implements Command{
 	private User user;
 
-	public printUserCommand(User u){
+	public PrintUserCommand(User u){
 		this.user = u;
 	}
 

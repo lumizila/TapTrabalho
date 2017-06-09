@@ -24,8 +24,10 @@ public class Cliente {
 
 		//criação de carrinho de compras c1 e produtos p1, p2, p3
 		ShoppingCart c1 = new ShoppingCart();
-		
-		
+
+		//criação da instancia do singleton que salvará o estado da aplicação		
+		SaveStateSingleton saver = new SaveStateSingleton();		
+
 		try {
 			p1 = new Item(35.00, (Date)formatter.parse("03/03/2017"), "nike", "tenis azul de corrida");
 		} catch (ParseException e) {
@@ -50,12 +52,21 @@ public class Cliente {
 		}
 
 		/*inclusão de produto p1, p2, p3; exclusao de p2 e alteracao de p1. */
-		Command printUser = new printUserCommand(u1);
-		Command addCart = new addCartToPersonCommand(c1, u1);
-		Command addItemP1 = new addItemToCartCommand(p1, c1);	
-		Command addItemP2 = new addItemToCartCommand(p2, c1);	
-		Command addItemP3 = new addItemToCartCommand(p3, c1);
-		Command removeItemP2 = new removeItemFromCartCommand(p2, c1);
+		Command printUser = new PrintUserCommand(u1);
+		Command addCart = new AddCartToPersonCommand(c1, u1);
+		Command addItemP1 = new AddItemToCartCommand(p1, c1);	
+		Command addItemP2 = new AddItemToCartCommand(p2, c1);	
+		Command addItemP3 = new AddItemToCartCommand(p3, c1);
+		Command removeItemP2 = new RemoveItemFromCartCommand(p2, c1);
+		
+		/* Comandos para salvar o estado da aplicação no Singleton */
+		Command saveUser = new SaveUserToSingleton(u1);
+		Command saveCart = new SaveCartToSIngleton(c1);
+		Command saveItemP1 = new SaveItemToSingleton(p1);
+		Command saveItemP2 = new SaveItemToSingleton(p2);
+		Command saveItemP3 = new SaveItemToSingleton(p3);
+		Command deleteItemP2 = new DeleteItemFromSingleton(p2);	
+	
 		Date newDate = null;
 		try {
 			newDate = (Date)formatter.parse("05/04/2017");
@@ -63,11 +74,13 @@ public class Cliente {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Command alterItemP1 = new alterItemCommand(p1, 45.00, newDate, "casaco", "casaco preto do cei");
+		Command alterItemP1 = new AlterItemCommand(p1, 45.00, newDate, "casaco", "casaco preto do cei");
 
 		//adding itens to the invoker class. 
 		invoker.addCommand(printUser);
+		invoker.addCommand(saveUser);
 		invoker.addCommand(addCart);
+		invoker.addCommand(saveCart);
 		invoker.addCommand(addItemP1);
 		invoker.addCommand(addItemP2);
 		invoker.addCommand(addItemP3);

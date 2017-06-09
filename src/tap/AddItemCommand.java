@@ -1,9 +1,9 @@
 package tap;
 
-public class addItemCommand implements Command{
+public class AddItemCommand implements Command{
 	private Item item;
 
-	public addItemCommand(Item i){
+	public AddItemCommand(Item i){
 		this.item = i;
 	}
 
