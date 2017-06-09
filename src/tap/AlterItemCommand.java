@@ -19,6 +19,7 @@ public class AlterItemCommand implements Command {
 
 	public void execute(){
 		this.item.alterItem(this.price, this.arrival_date, this.brand, this.especs); 
+		//the item is automatically saved in the singleton because singleton has a pointer to it
 	}
 
 }

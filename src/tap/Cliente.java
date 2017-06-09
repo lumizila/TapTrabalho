@@ -26,7 +26,7 @@ public class Cliente {
 		ShoppingCart c1 = new ShoppingCart();
 
 		//criação da instancia do singleton que salvará o estado da aplicação		
-		SaveStateSingleton saver = new SaveStateSingleton();		
+		SaveStateSingleton saver = SaveStateSingleton.getInstance();
 
 		try {
 			p1 = new Item(35.00, (Date)formatter.parse("03/03/2017"), "nike", "tenis azul de corrida");
@@ -52,21 +52,13 @@ public class Cliente {
 		}
 
 		/*inclusão de produto p1, p2, p3; exclusao de p2 e alteracao de p1. */
-		Command printUser = new PrintUserCommand(u1);
-		Command addCart = new AddCartToPersonCommand(c1, u1);
-		Command addItemP1 = new AddItemToCartCommand(p1, c1);	
-		Command addItemP2 = new AddItemToCartCommand(p2, c1);	
-		Command addItemP3 = new AddItemToCartCommand(p3, c1);
-		Command removeItemP2 = new RemoveItemFromCartCommand(p2, c1);
+		Command printUser = new PrintUserCommand(u1, saver);
+		Command addCart = new AddCartToPersonCommand(c1, u1, saver);
+		Command addItemP1 = new AddItemToCartCommand(p1, c1, saver);	
+		Command addItemP2 = new AddItemToCartCommand(p2, c1, saver);	
+		Command addItemP3 = new AddItemToCartCommand(p3, c1, saver);
+		Command removeItemP2 = new RemoveItemFromCartCommand(p2, c1, saver);
 		
-		/* Comandos para salvar o estado da aplicação no Singleton */
-		Command saveUser = new SaveUserToSingleton(u1);
-		Command saveCart = new SaveCartToSIngleton(c1);
-		Command saveItemP1 = new SaveItemToSingleton(p1);
-		Command saveItemP2 = new SaveItemToSingleton(p2);
-		Command saveItemP3 = new SaveItemToSingleton(p3);
-		Command deleteItemP2 = new DeleteItemFromSingleton(p2);	
-	
 		Date newDate = null;
 		try {
 			newDate = (Date)formatter.parse("05/04/2017");
@@ -78,9 +70,7 @@ public class Cliente {
 
 		//adding itens to the invoker class. 
 		invoker.addCommand(printUser);
-		invoker.addCommand(saveUser);
 		invoker.addCommand(addCart);
-		invoker.addCommand(saveCart);
 		invoker.addCommand(addItemP1);
 		invoker.addCommand(addItemP2);
 		invoker.addCommand(addItemP3);

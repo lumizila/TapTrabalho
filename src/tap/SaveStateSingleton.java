@@ -7,9 +7,9 @@ import java.util.ArrayList;
 public class SaveStateSingleton {
 	private static SaveStateSingleton instance = null;
 	
-	public static ArrayList<Item> itens = null; 
-	public static ArrayList<User> users = null;
-	public static ArrayList<ShoppingCart> carts = null;
+	public ArrayList<Item> itens = null; 
+	public ArrayList<User> users = null;
+	public ArrayList<ShoppingCart> carts = null;
 	
 	protected SaveStateSingleton() {
 	   // Exists only to defeat instantiation.

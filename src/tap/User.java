@@ -2,7 +2,7 @@ package tap;
 
 public class User {
 	
-	private String name, email, shoppingCart;
+	private String name, email;
 	private int id;
 	private ShoppingCart cart;
 	
