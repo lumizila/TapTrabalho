@@ -9,6 +9,7 @@ public class Cliente {
 
 	public static void main(String[] args) {
 		Invoker invoker = new Invoker();
+		Factory factory = new Factory();
 		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		GlobalId.initItem_id();
 		GlobalId.initUser_id();
@@ -30,21 +31,7 @@ public class Cliente {
 
 		try {
 			p1 = new Item(35.00, (Date)formatter.parse("03/03/2017"), "nike", "tenis azul de corrida");
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		try {
 			p2 = new Item(321.00, (Date)formatter.parse("03/03/2017"), "nikee", "tenis azul de corrida");
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		try {
 			p3 = new Item(434.00, (Date)formatter.parse("03/03/2017"), "nikeeee", "tenis azul de corrida");
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -52,12 +39,12 @@ public class Cliente {
 		}
 
 		/*inclusão de produto p1, p2, p3; exclusao de p2 e alteracao de p1. */
-		Command printUser = new PrintUserCommand(u1, saver);
-		Command addCart = new AddCartToPersonCommand(c1, u1, saver);
-		Command addItemP1 = new AddItemToCartCommand(p1, c1, saver);	
-		Command addItemP2 = new AddItemToCartCommand(p2, c1, saver);	
-		Command addItemP3 = new AddItemToCartCommand(p3, c1, saver);
-		Command removeItemP2 = new RemoveItemFromCartCommand(p2, c1, saver);
+		Command printUser = factory.createPrintUserCommand(u1, saver);
+		Command addCart = factory.createAddCartToPersonCommand(c1, u1, saver);
+		Command addItemP1 = factory.createAddItemToCartCommand(p1, c1, saver);	
+		Command addItemP2 = factory.createAddItemToCartCommand(p2, c1, saver);	
+		Command addItemP3 = factory.createAddItemToCartCommand(p3, c1, saver);
+		Command removeItemP2 = factory.createRemoveItemFromCartCommand(p2, c1, saver);
 		
 		Date newDate = null;
 		try {
@@ -66,7 +53,7 @@ public class Cliente {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Command alterItemP1 = new AlterItemCommand(p1, 45.00, newDate, "casaco", "casaco preto do cei");
+		Command alterItemP1 = factory.createAlterItemCommand(p1, 45.00, newDate, "casaco", "casaco preto do cei");
 
 		//adding itens to the invoker class. 
 		invoker.addCommand(printUser);

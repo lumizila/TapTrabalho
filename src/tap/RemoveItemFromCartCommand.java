@@ -5,6 +5,8 @@ public class RemoveItemFromCartCommand implements Command {
 	private ShoppingCart cart;
 	private SaveStateSingleton saver;
 	
+	private RemoveItemFromCartCommand(){}
+	
 	public RemoveItemFromCartCommand(Item i, ShoppingCart c, SaveStateSingleton s){
 		this.item = i;
 		this.cart = c;
