@@ -5,6 +5,9 @@ public class AddCartToPersonCommand implements Command{
 	private ShoppingCart cart;
 	private SaveStateSingleton saver;
 	
+	
+	private AddCartToPersonCommand(){}
+	
 	public AddCartToPersonCommand(ShoppingCart c, User u, SaveStateSingleton s){
 		this.user = u;
 		this.cart = c;

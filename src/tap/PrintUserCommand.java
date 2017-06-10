@@ -3,6 +3,7 @@ package tap;
 public class PrintUserCommand implements Command{
 	private User user;
 	private SaveStateSingleton saver;
+	private PrintUserCommand(){}
 	
 	public PrintUserCommand(User u, SaveStateSingleton s){
 		this.user = u;

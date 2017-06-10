@@ -6,6 +6,7 @@ public class AddItemToCartCommand implements Command {
 	private SaveStateSingleton saver;
 	
 	private AddItemToCartCommand(){};
+	
 	public AddItemToCartCommand(Item i, ShoppingCart c, SaveStateSingleton s){
 		this.item = i;
 		this.cart = c;
